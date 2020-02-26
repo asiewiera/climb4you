@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="fragments/general::head"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="menu">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/product/add">Add</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+    </ul>
+</div>
+
+
+
+<div th:fragment="categoryMenu" class="product-menu">
+    <div class="product-menu">
+        <ul class="category-menu">
+            <li class="dropdown" th:each="menuLevel0 : ${mainCategories}">
+                <a th:href="@{'/products/' + ${menuLevel0.name}}" th:text="${menuLevel0.name}" class="dropbtn">${menuLevel0.name}</a>
+                <div class="dropdown-content">
+                    <ul th:each="menuLevel1 : ${menuLevel0.childNames}">
+                        <a th:href="${menuLevel1}" th:text="${menuLevel1}">${menuLevel1}</a>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div th:fragment="categoryMenuDISABLED">
+    <div class="container.fluid">
+
+        <div class="row">
+            <div class="submenu-col" th:each="menuLevel0 : ${mainCategories}" >
+                <th:block th:text="${menuLevel0.name}">a</th:block>
+                <ul th:each="menuLevel1 : ${menuLevel0.childNames}">
+                    <a th:href="${menuLevel1}" th:text="${menuLevel1}">${menuLevel1}</a>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

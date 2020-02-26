@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:include="fragments/general::head"/>
+
+    <title>Climb 4 you</title>
+</head>
+
+
+
+<body>
+<div th:replace="fragments/menu::menu"></div>
+
+<h1>Product Edit Form</h1>
+
+<form th:object="${product}" method="post">
+    <input class="form-control" type="hidden" th:field="*{id}" name="id">
+
+    <div class="form-group">
+        <label for="productInputName">Name</label>
+        <input type="text" class="form-control" id="productInputName" placeholder="product name" th:field ="*{name}" >
+    </div>
+    <div class="form-group">
+        <label for="productBrand">Brand</label>
+        <select class="form-control" id="productBrand" name="brand" th:field="*{brand}" >
+            <option th:each="brandType: ${brandTypes}"
+                    th:value="${brandType.name()}" th:text="${brandType.name()}"></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="category">Brand</label>
+        <select class="form-control" id="category" name="brand" th:field="*{category}" >
+            <option th:each="category: ${categories}"
+                    th:value="${category.name}" th:text="${category.name}"></option>
+        </select>
+    </div>
+    private BigDecimal price;
+    <div class="form-group">
+        <label for="productPrice">Price</label>
+        <input type="number" class="form-control" id="productPrice" placeholder="product price" th:field ="*{price}" >
+    </div>
+<div class="form-row">
+    <div class="form-group">
+        <label for="sizeCategories">Size Categories Available</label>
+        <select class="form-control" id="sizeCategories" name="sizes_available" th:field="*{sizes_available}"  onchange="getOption()" >
+            <option th:value="null">Choose size category</option>
+            <option th:each="size: ${sizeCategories}"
+                    th:value="${size}"
+                    th:text="${size.name}"></option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="productSize">Size </label>
+        <select class="form-control" id="productSize" name="size" th:field="*{size}" >
+            <option th:each="size: *{sizes_available}"
+                    th:value="${size}"
+                    th:text="${size}"></option>
+        </select>
+    </div>
+</div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Example textarea</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+</form>
+​​
+<p>
+    The value of the option selected is:
+    <span class="output"></span>
+</p>
+
+<button onclick="getOption()">
+    Check option
+</button>
+
+<script type="text/javascript">
+    function getOption() {
+        selectElement =
+            document.querySelector('#sizeCategories');
+
+        output = selectElement.value;
+
+        document.querySelector('.output').textContent
+            = output;
+        var x = document.getElementById("sizeCategories").getAttribute();
+        for (var i=0;i<x.length;i++){
+            x[i]
+        }
+        var c = document.createElement("option");
+        c.text = "Kiwi";
+        x.options.add(c, 1);
+    }
+</script>
+
+<th:block th:replace="fragments/general :: scripts"></th:block>
+</body>
+
+</html>
+

@@ -1,0 +1,38 @@
+use climb4you_db;
+/*size_category update*/
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('1', 'NA', 'NA');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('2', 'XS', 'XS_XL');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('3', 'S', 'XS_XL');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('4', 'M', 'XS_XL');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('5', 'L', 'XS_XL');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('6', 'XL', 'XS_XL');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('7', '36', '36_42');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('8', '37', '36_42');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('9', '38', '36_42');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('10', '39', '36_42');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('11', '40', '36_42');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('12', '41', '36_42');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('13', '42', '36_42');
+INSERT INTO `climb4you_db`.`size` (`id`, `name`, `size_category`) VALUES ('14', '1', '1_3');
+
+
+INSERT INTO `climb4you_db`.`product_category` (`id`, `name`) VALUES ('1', 'Climbing Gear');
+INSERT INTO `climb4you_db`.`product_category` (`id`, `name`) VALUES ('2', 'Climbing Shoes');
+INSERT INTO `climb4you_db`.`product_category` (`id`, `name`, `parent_name`) VALUES ('3', 'Hardware', 'Climbing Gear');
+INSERT INTO `climb4you_db`.`product_category` (`id`, `name`, `parent_name`) VALUES ('4', 'Helmets', 'Climbing Gear');
+INSERT INTO `climb4you_db`.`product_category` (`id`, `name`, `parent_name`) VALUES ('5', 'Harnesses', 'Climbing Gear');
+INSERT INTO `climb4you_db`.`product_category` (`id`, `name`, `parent_name`) VALUES ('6', 'Ropes', 'Climbing Gear');
+INSERT INTO `climb4you_db`.`product_category` (`id`, `name`, `parent_name`) VALUES ('7', 'Carabiners', 'Hardware');
+INSERT INTO `climb4you_db`.`product_category` (`id`, `name`, `parent_name`) VALUES ('8', 'Quickdraws', 'Hardware');
+INSERT INTO `climb4you_db`.`product_category` (`id`, `name`, `parent_name`) VALUES ('9', 'Accessories', 'Climbing Gear');
+INSERT INTO `climb4you_db`.`product_category` (`id`, `name`, `parent_name`) VALUES ('10', 'Lace-Up Shoes', 'Climbing Shoes');
+INSERT INTO `climb4you_db`.`product_category` (`id`, `name`, `parent_name`) VALUES ('11', 'Strap Shoes', 'Climbing Shoes');
+
+INSERT INTO `climb4you_db`.`brand` (`id`, `name`) VALUES ('1', 'Other');
+INSERT INTO `climb4you_db`.`brand` (`id`, `name`) VALUES ('2', 'Ocun');
+INSERT INTO `climb4you_db`.`brand` (`id`, `name`) VALUES ('3', 'Petzl');
+
+
+INSERT INTO `climb4you_db`.`product` (`id`, `colour`, `description`, `gender`, `name`, `price`, `quantity`, `brand_id`, `product_category_id`, `size_id`) VALUES ('1', 'Blue', 'shoes', 'Uni', 'Strike Blue', '234.78', '10', '2', '10', '9');
+
+

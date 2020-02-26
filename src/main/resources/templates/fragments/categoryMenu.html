@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="fragments/general::head"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div th:fragment="categoryMenu" class="product-menu">
+            <div class="product-menu-col" th:each="menuLevel0 : ${mainCategories}">
+                <strong class="strong-menu-heading" th:text="${menuLevel0.name}" >menuLevel0</strong>
+                <ul  th:each="menuLevel1 : ${mainCategories.childNames}">
+                    <li><a href="/kurtki-meskie">${menuLevel1.name}</a></li>
+                </ul>
+            </div>
+            <div class="product-menu-col">
+                <strong class="strong-menu-heading">Shoes Static</strong>
+                <ul>
+                    <li><a href="/buty-wspinaczkowe-meskie">Buty wspinaczkowe</a></li>
+                    <li><a href="/obuwie-meskie"><strong>Wszystkie</strong></a></li>
+                </ul>
+            </div>
+    </div>
+</body>
+</html>
